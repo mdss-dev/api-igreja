@@ -8,17 +8,17 @@ export class MembersService {
   constructor(private prismaService: PrismaService) {}
 
   create(createMemberDto: CreateMemberDto) {
-    return this.prismaService.member.create({
+    return this.prismaService.members.create({
       data: createMemberDto,
     });
   }
 
   findAll() {
-    return this.prismaService.member.findMany();
+    return this.prismaService.members.findMany();
   }
 
   findOne(id: string) {
-    return this.prismaService.member.findUniqueOrThrow({
+    return this.prismaService.members.findUniqueOrThrow({
       where: {
         id,
       },
@@ -26,14 +26,14 @@ export class MembersService {
   }
 
   update(id: string, updateMemberDto: UpdateMemberDto) {
-    return this.prismaService.member.update({
+    return this.prismaService.members.update({
       where: { id },
       data: updateMemberDto,
     });
   }
 
   remove(id: string) {
-    return this.prismaService.member.delete({
+    return this.prismaService.members.delete({
       where: { id },
     });
   }

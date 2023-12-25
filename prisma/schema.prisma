@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Member {
+model Members {
   id        String   @id @default(uuid())
   name      String   @unique
   email     String   @unique
@@ -19,4 +19,13 @@ model Member {
   createdAt DateTime @default(now())
 
   @@map("members")
+}
+
+model Events {
+  id          String @id @default(uuid())
+  title       String
+  date        String
+  description String
+
+  @@map("events")
 }
